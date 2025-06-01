@@ -9,13 +9,32 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from './style';
 
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../../App'; // ajuste o caminho se mover o tipo
+
 const Home = () => {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+  // Simulação: você pode usar AsyncStorage ou contexto depois
+  const isUserLogged = false;
+
   return (
     <SafeAreaView style={styles.safeContainer}>
       {/* Header fixo */}
       <View style={styles.fixedHeader}>
         <Image source={require('../../assets/buguer.png')} style={styles.menuIcon} />
-        <Image source={require('../../assets/user.png')} style={styles.userIcon} />
+        
+        {/* Ícone de usuário com navegação condicional */}
+        <TouchableOpacity
+          onPress={() => {
+            if (!isUserLogged) {
+              navigation.navigate('AlertaCadastro');
+            }
+          }}
+        >
+          <Image source={require('../../assets/user.png')} style={styles.userIcon} />
+        </TouchableOpacity>
       </View>
 
       <ScrollView
@@ -25,7 +44,11 @@ const Home = () => {
 
         {/* Logo */}
         <View style={styles.logoContainer}>
-          <Image source={require('../../assets/logo.png')} style={styles.logo} resizeMode="contain" />
+          <Image
+            source={require('../../assets/logo.png')}
+            style={styles.logo}
+            resizeMode="contain"
+          />
         </View>
 
         {/* Acesso Rápido */}
