@@ -9,6 +9,12 @@ import HomeScreen from './src/pages/home';
 import LoginScreen from './src/pages/login';
 import Cadastro from './src/pages/cadastro';
 import AlertaCadastro from './src/pages/alertaCadastro';
+import Alerta from './src/pages/alerta';
+import AdicionarAlerta from './src/pages/adicionarAlerta';
+import Denuncia from './src/pages/denuncia';
+import FormularioDenuncia from './src/pages/formulario';
+import Conscientizacao from './src/pages/conscientizacao';
+import Clima from './src/pages/clima';
 
 // Tipagem das rotas
 export type RootStackParamList = {
@@ -34,6 +40,13 @@ export default function App() {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Cadastro" component={Cadastro} />
         <Stack.Screen name="AlertaCadastro" component={AlertaCadastro} />
+        <Stack.Screen name="Alerta" component={Alerta} />
+        <Stack.Screen name="AdicionarAlerta" component={AdicionarAlerta} />
+        <Stack.Screen name="Denuncia" component={Denuncia} />
+        <Stack.Screen name="FormularioDenuncia" component={FormularioDenuncia} />
+        <Stack.Screen name="Conscientizacao" component={Conscientizacao} />
+        <Stack.Screen name="Clima" component={Clima} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

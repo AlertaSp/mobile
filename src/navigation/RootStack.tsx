@@ -1,6 +1,12 @@
 export type RootStackParamList = {
   Home: undefined;
-  AlertaCadastro: undefined;
   Login: undefined;
   Cadastro: undefined;
+  AlertaCadastro: undefined;
+  Alerta: undefined;
+  Mapa: undefined;
+  Denuncia: undefined;
+  AdicionarAlerta: undefined;
+   FormularioDenuncia: undefined;
+  
 };

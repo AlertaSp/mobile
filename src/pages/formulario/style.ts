@@ -1,0 +1,168 @@
+// src/pages/formulario/style.ts
+import { StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#3EA9E1',
+  },
+  scroll: {
+    paddingBottom: 20,
+    paddingHorizontal: 16,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingTop: 40,
+    paddingBottom: 16,
+    backgroundColor: '#fff',
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+  },
+  backIcon: {
+    width: 24,
+    height: 24,
+  },
+  headerCenter: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#000',
+    textAlign: 'center',
+  },
+  topInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 20,
+    marginBottom: 10,
+    gap: 10,
+  },
+  joiaIcon: {
+    width: 70,
+    height: 70,
+    marginRight: 10,
+  },
+  topInfoText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: '600',
+    flex: 1,
+  },
+  label: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: '#000',
+    marginTop: 15,
+    paddingLeft: 10,
+    marginBottom: 6,
+  },
+  dropdownButton: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    justifyContent: 'center',
+    alignSelf: 'flex-start',
+    minWidth: '50%',
+    marginBottom: 8,
+  },
+  dropdownText: {
+    color: '#9A9A9A',
+    fontSize: 14,
+  },
+  dropdownOptionsContainer: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    marginBottom: 12,
+    paddingVertical: 8,
+  },
+  dropdownOption: {
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    borderBottomWidth: 0.5,
+    borderColor: '#ccc',
+  },
+  optionText: {
+    color: '#000',
+    fontSize: 14,
+  },
+  input: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    fontSize: 15,
+    color: '#000',
+    marginBottom: 10,
+  },
+  inputSmall: {
+    width: '50%',
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    fontSize: 14,
+    color: '#000',
+    marginBottom: 10,
+  },
+  textArea: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    padding: 12,
+    fontSize: 14,
+    color: '#000',
+    height: 100,
+    textAlignVertical: 'top',
+    marginBottom: 8,
+  },
+  photoRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    marginBottom: 30,
+  },
+  subtext: {
+    flex: 1,
+    color: '#fff',
+    fontSize: 14,
+    marginLeft: 8,
+  },
+  photoButton: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    padding: 10,
+    alignItems: 'center',
+    width: 130,
+  },
+  photoIcon: {
+    width: 63,
+    height: 63,
+    marginBottom: 5,
+  },
+  photoButtonText: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#000',
+  },
+  submitButton: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    paddingVertical: 14,
+    alignItems: 'center',
+    width: '80%',
+    alignSelf: 'center',
+    marginBottom: 60,
+  },
+  submitButtonText: {
+    fontWeight: 'bold',
+    color: '#000',
+    fontSize: 16,
+  },
+});
+
+export default styles;
