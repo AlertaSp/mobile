@@ -11,7 +11,7 @@ import {
 import * as Location from 'expo-location';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../../App';
+import { RootStackParamList } from '../../navigation/RootStack';
 import styles from './style';
 import {
   getWeatherByCity,
@@ -120,7 +120,10 @@ const Clima = () => {
             <View style={styles.resultadoBox}>
               <Text style={styles.label}>{dados.name?.toUpperCase()}</Text>
               <View style={styles.row}>
-                <Text style={styles.temperatura}>{Math.round(dados.main.temp)}°</Text>
+                <Text style={styles.temperatura}>
+                  {Math.round(dados.main.temp)}
+                  <Text style={styles.temperatura}>°</Text>
+                </Text>
                 <Text style={styles.date}>{formatarData().toUpperCase()}</Text>
               </View>
               <Image
@@ -152,7 +155,10 @@ const Clima = () => {
                     }}
                     style={styles.cardIcone}
                   />
-                  <Text style={styles.cardTexto}>{Math.round(item.main.temp)}°</Text>
+                  <Text style={styles.cardTexto}>
+                    {Math.round(item.main.temp)}
+                    <Text style={styles.cardTexto}>°</Text>
+                  </Text>
                 </View>
               ))}
             </View>

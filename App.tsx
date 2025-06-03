@@ -3,6 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import * as SystemUI from 'expo-system-ui';
+import { RootStackParamList } from "../alertaSp/src/navigation/RootStack";
+
 
 // Páginas
 import HomeScreen from './src/pages/home';
@@ -15,20 +17,15 @@ import Denuncia from './src/pages/denuncia';
 import FormularioDenuncia from './src/pages/formulario';
 import Conscientizacao from './src/pages/conscientizacao';
 import Clima from './src/pages/clima';
+import Mapa from './src/pages/mapa';
 
-// Tipagem das rotas
-export type RootStackParamList = {
-  Home: undefined;
-  Login: undefined;
-  Cadastro: undefined;
-  AlertaCadastro: undefined;
-};
+
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
   useEffect(() => {
-    SystemUI.setBackgroundColorAsync('#000'); // cor de fundo do status bar Android
+    SystemUI.setBackgroundColorAsync('#000');
   }, []);
 
   return (
@@ -46,6 +43,7 @@ export default function App() {
         <Stack.Screen name="FormularioDenuncia" component={FormularioDenuncia} />
         <Stack.Screen name="Conscientizacao" component={Conscientizacao} />
         <Stack.Screen name="Clima" component={Clima} />
+        <Stack.Screen name="Mapa" component={Mapa} />
 
       </Stack.Navigator>
     </NavigationContainer>

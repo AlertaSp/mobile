@@ -7,6 +7,7 @@ export type RootStackParamList = {
   Mapa: undefined;
   Denuncia: undefined;
   AdicionarAlerta: undefined;
-   FormularioDenuncia: undefined;
-  
+  FormularioDenuncia: undefined;
+  Conscientizacao: undefined;
+  Clima: undefined;
 };

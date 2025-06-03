@@ -10,7 +10,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../../App';
+import { RootStackParamList } from '../../navigation/RootStack';
 
 const Home = () => {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();

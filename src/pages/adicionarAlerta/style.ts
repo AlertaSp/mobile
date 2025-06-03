@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
   form: {
     paddingHorizontal: 20,
     paddingTop: 32,
+    paddingBottom: 80,
   },
   label: {
     color: '#000',
@@ -71,16 +72,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#000',
   },
-  inputWrapperSmall: {
-  flexDirection: 'row',
-  alignItems: 'center',
-  backgroundColor: '#fff',
-  borderRadius: 12,
-  paddingHorizontal: 12,
-  marginBottom: 16,
-  width: '45%',
-},
-
 });
 
 export default styles;

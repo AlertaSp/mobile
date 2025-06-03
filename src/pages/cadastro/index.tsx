@@ -1,5 +1,6 @@
 // src/pages/cadastro/index.tsx
 import React from 'react';
+import { RootStackParamList } from '../../navigation/RootStack';
 import {
   View,
   Text,
