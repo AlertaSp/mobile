@@ -10,11 +10,24 @@ import {
 } from 'react-native';
 import styles from './style';
 
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../navigation/RootStack';
+
 const Login = () => {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
   return (
     <SafeAreaView style={styles.container}>
-      {/* Topo branco com logo */}
+      {/* Header com botão de voltar e logo */}
       <View style={styles.header}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Home')}
+          style={styles.backButton}
+        >
+          <Image source={require('../../assets/backIcon.png')} style={styles.backIcon} />
+        </TouchableOpacity>
+
         <Image
           source={require('../../assets/logo.png')}
           style={styles.logo}
@@ -59,16 +72,17 @@ const Login = () => {
 
           <Text style={styles.linkText}>Nunca acessou nosso aplicativo?</Text>
 
-          <TouchableOpacity style={styles.outlinedButton}>
+          <TouchableOpacity
+            style={styles.outlinedButton}
+            onPress={() => navigation.navigate('Cadastro')}
+          >
             <Text style={styles.outlinedButtonText}>Faça seu primeiro acesso</Text>
           </TouchableOpacity>
         </View>
-
-        
       </View>
 
       {/* Rodapé branco arredondado */}
-<View style={styles.footer} />
+      <View style={styles.footer} />
     </SafeAreaView>
   );
 };

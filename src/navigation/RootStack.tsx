@@ -10,4 +10,5 @@ export type RootStackParamList = {
   FormularioDenuncia: undefined;
   Conscientizacao: undefined;
   Clima: undefined;
+  InformarAlagamento: undefined;
 };

@@ -89,15 +89,27 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
 
+  backButton: {
+    position: 'absolute',
+    left: 16,
+    top: 40,
+    zIndex: 10,
+  },
+
+  backIcon: {
+    width: 24,
+    height: 24,
+  },
+
   footer: {
-  width: '100%',
-  height: 50,
-  backgroundColor: '#fff',
-  borderTopLeftRadius: 100,
-  borderTopRightRadius: 100,
-  position: 'absolute',
-  bottom: 0,
-},
+    width: '100%',
+    height: 50,
+    backgroundColor: '#fff',
+    borderTopLeftRadius: 100,
+    borderTopRightRadius: 100,
+    position: 'absolute',
+    bottom: 0,
+  },
 });
 
 export default styles;

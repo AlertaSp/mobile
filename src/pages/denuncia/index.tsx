@@ -1,4 +1,3 @@
-// src/pages/denuncia/index.tsx
 import React from 'react';
 import {
   View,
@@ -47,7 +46,10 @@ const Denuncia = () => {
           <Text style={styles.buttonText}>DENUNCIAR{'\n'}POLUIÇÃO DOS RIOS</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.buttonBox}>
+        <TouchableOpacity
+          style={styles.buttonBox}
+          onPress={() => navigation.navigate('InformarAlagamento')}
+        >
           <Image source={require('../../assets/denunciaAlagamentoIcon.png')} style={styles.buttonIcon} />
           <Text style={styles.buttonText}>DENUNCIAR{'\n'}ALAGAMENTO</Text>
         </TouchableOpacity>

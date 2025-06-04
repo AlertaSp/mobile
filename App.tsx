@@ -18,6 +18,7 @@ import FormularioDenuncia from './src/pages/formulario';
 import Conscientizacao from './src/pages/conscientizacao';
 import Clima from './src/pages/clima';
 import Mapa from './src/pages/mapa';
+import InformarAlagamento from './src/pages/InformarAlagamento';
 
 
 
@@ -44,6 +45,7 @@ export default function App() {
         <Stack.Screen name="Conscientizacao" component={Conscientizacao} />
         <Stack.Screen name="Clima" component={Clima} />
         <Stack.Screen name="Mapa" component={Mapa} />
+        <Stack.Screen name="InformarAlagamento" component={InformarAlagamento} />
 
       </Stack.Navigator>
     </NavigationContainer>

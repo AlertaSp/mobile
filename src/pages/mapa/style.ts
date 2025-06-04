@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#3EA9E1',
+    backgroundColor: '#ffff',
   },
   header: {
     flexDirection: 'row',
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 40,
     paddingBottom: 16,
-    backgroundColor: '#fff',
+    backgroundColor: '#3EA9E1',
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
   },
@@ -31,6 +31,16 @@ const styles = StyleSheet.create({
   },
   map: {
     flex: 1,
+  },
+
+    footer: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    height: 60,
+    backgroundColor: '#3EA9E1',
+    borderTopLeftRadius: 100,
+    borderTopRightRadius: 100,
   },
 });
 

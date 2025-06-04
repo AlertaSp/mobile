@@ -75,6 +75,19 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
   },
+
+  backButton: {
+  position: 'absolute',
+  left: 16,
+  top: 40,
+  zIndex: 10,
+},
+
+backIcon: {
+  width: 24,
+  height: 24,
+},
+
 });
 
 export default styles;

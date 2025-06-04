@@ -1,6 +1,5 @@
 // src/pages/cadastro/index.tsx
 import React from 'react';
-import { RootStackParamList } from '../../navigation/RootStack';
 import {
   View,
   Text,
@@ -9,11 +8,24 @@ import {
   Image,
   SafeAreaView,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../navigation/RootStack';
 import styles from './style';
 
 const Cadastro = () => {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
   return (
     <SafeAreaView style={styles.container}>
+      {/* Ícone de voltar fixado no canto superior esquerdo */}
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Home')}
+        style={styles.backButton}
+      >
+        <Image source={require('../../assets/backIcon.png')} style={styles.backIcon} />
+      </TouchableOpacity>
+
       {/* Header */}
       <View style={styles.header}>
         <Image
@@ -62,7 +74,10 @@ const Cadastro = () => {
             <Text style={styles.buttonText}>Cadastrar</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.outlinedButton}>
+          <TouchableOpacity
+            style={styles.outlinedButton}
+            onPress={() => navigation.navigate('Login')}
+          >
             <Text style={styles.outlinedButtonText}>Já tenho um login</Text>
           </TouchableOpacity>
         </View>

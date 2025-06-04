@@ -47,16 +47,22 @@ const AlertaCadastro = () => {
 
       {/* Texto central */}
       <Text style={styles.alertText}>
-        Cadastre-se ou faça{'\n'}o login{'\n'} para acessar!
+        Cadastre-se ou faça{'\n'}o login{'\n'}para acessar!
       </Text>
 
       {/* Botões */}
       <View style={styles.buttonArea}>
-        <TouchableOpacity style={styles.accessButton}>
+        <TouchableOpacity
+          style={styles.accessButton}
+          onPress={() => navigation.navigate('Login')}
+        >
           <Text style={styles.accessButtonText}>Acessar</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.registerButton}>
+        <TouchableOpacity
+          style={styles.registerButton}
+          onPress={() => navigation.navigate('Cadastro')}
+        >
           <Text style={styles.registerButtonText}>Cadastrar</Text>
         </TouchableOpacity>
       </View>
