@@ -1,5 +1,4 @@
-// src/pages/login/index.tsx
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -7,6 +6,7 @@ import {
   TouchableOpacity,
   Image,
   SafeAreaView,
+  Alert,
 } from 'react-native';
 import styles from './style';
 
@@ -14,8 +14,29 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/RootStack';
 
+import { auth } from '../../services/firebaseConfig';
+
 const Login = () => {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+
+  const handleLogin = () => {
+    if (!email || !senha) {
+      Alert.alert('Erro', 'Preencha todos os campos');
+      return;
+    }
+
+    auth
+      .signInWithEmailAndPassword(email, senha)
+      .then(() => {
+        navigation.navigate('Home'); 
+      })
+      .catch((error) => {
+        Alert.alert('Erro no login', error.message);
+      });
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -47,6 +68,10 @@ const Login = () => {
             style={styles.input}
             placeholder="Insira seu e-mail"
             placeholderTextColor="#9A9A9A"
+            value={email}
+            onChangeText={setEmail}
+            keyboardType="email-address"
+            autoCapitalize="none"
           />
         </View>
 
@@ -61,12 +86,14 @@ const Login = () => {
             placeholder="Insira sua senha"
             placeholderTextColor="#9A9A9A"
             secureTextEntry
+            value={senha}
+            onChangeText={setSenha}
           />
         </View>
 
         {/* Botões mais abaixo */}
         <View style={styles.buttonArea}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={handleLogin}>
             <Text style={styles.buttonText}>Acessar</Text>
           </TouchableOpacity>
 
