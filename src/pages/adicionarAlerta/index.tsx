@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -9,7 +9,10 @@ import {
   KeyboardAvoidingView,
   ScrollView,
   Platform,
+  Alert,
 } from 'react-native';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/RootStack';
@@ -17,6 +20,57 @@ import styles from './style';
 
 const AdicionarAlerta = () => {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+  const [nomeEndereco, setNomeEndereco] = useState('');
+  const [cep, setCep] = useState('');
+  const [rua, setRua] = useState('');
+  const [numero, setNumero] = useState('');
+  const [bairro, setBairro] = useState('');
+
+  const buscarCep = async (valor: string) => {
+    const cepLimpo = valor.replace(/\D/g, '');
+    if (cepLimpo.length !== 8) return;
+
+    try {
+      const response = await axios.get(`https://viacep.com.br/ws/${cepLimpo}/json/`);
+      if (response.data.erro) {
+        Alert.alert('CEP inválido', 'Não foi possível localizar o endereço.');
+        return;
+      }
+
+      setRua(response.data.logradouro || '');
+      setBairro(response.data.bairro || '');
+    } catch (error) {
+      Alert.alert('Erro', 'Falha ao buscar o endereço via CEP.');
+    }
+  };
+
+  const handleSalvar = async () => {
+    if (!nomeEndereco || !rua || !numero || !bairro) {
+      Alert.alert('Campos obrigatórios', 'Preencha todos os campos.');
+      return;
+    }
+
+    const alerta = {
+      nome: nomeEndereco,
+      cep,
+      rua,
+      numero,
+      bairro,
+    };
+
+    try {
+      const dados = await AsyncStorage.getItem('enderecos');
+      const lista = dados ? JSON.parse(dados) : [];
+      lista.push(alerta);
+      await AsyncStorage.setItem('enderecos', JSON.stringify(lista));
+
+      Alert.alert('Alerta criado com sucesso!');
+      navigation.goBack();
+    } catch (error) {
+      Alert.alert('Erro', 'Não foi possível salvar o alerta.');
+    }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -42,8 +96,28 @@ const AdicionarAlerta = () => {
               <Image source={require('../../assets/flagIcon.png')} style={styles.inputIcon} />
               <TextInput
                 style={styles.input}
-                placeholder="Nome"
+                placeholder="Ex: Casa mãe"
                 placeholderTextColor="#9A9A9A"
+                value={nomeEndereco}
+                onChangeText={setNomeEndereco}
+              />
+            </View>
+
+            <Text style={styles.label}>CEP</Text>
+            <View style={styles.inputWrapper}>
+              <Image source={require('../../assets/flagIcon.png')} style={styles.inputIcon} />
+              <TextInput
+                style={styles.input}
+                placeholder="00000-000"
+                placeholderTextColor="#9A9A9A"
+                value={cep}
+                onChangeText={(value) => {
+                  setCep(value);
+                  if (value.replace(/\D/g, '').length === 8) {
+                    buscarCep(value);
+                  }
+                }}
+                keyboardType="numeric"
               />
             </View>
 
@@ -54,6 +128,8 @@ const AdicionarAlerta = () => {
                 style={styles.input}
                 placeholder="Endereço"
                 placeholderTextColor="#9A9A9A"
+                value={rua}
+                onChangeText={setRua}
               />
             </View>
 
@@ -65,6 +141,8 @@ const AdicionarAlerta = () => {
                 placeholder="Número"
                 placeholderTextColor="#9A9A9A"
                 keyboardType="numeric"
+                value={numero}
+                onChangeText={setNumero}
               />
             </View>
 
@@ -75,21 +153,12 @@ const AdicionarAlerta = () => {
                 style={styles.input}
                 placeholder="Bairro"
                 placeholderTextColor="#9A9A9A"
+                value={bairro}
+                onChangeText={setBairro}
               />
             </View>
 
-            <Text style={styles.label}>Telefone</Text>
-            <View style={styles.inputWrapper}>
-              <Image source={require('../../assets/flagIcon.png')} style={styles.inputIcon} />
-              <TextInput
-                style={styles.input}
-                placeholder="(11) 91234-5678"
-                placeholderTextColor="#9A9A9A"
-                keyboardType="phone-pad"
-              />
-            </View>
-
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={handleSalvar}>
               <Text style={styles.buttonText}>Confirmar</Text>
             </TouchableOpacity>
           </View>

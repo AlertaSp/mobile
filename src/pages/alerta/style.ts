@@ -89,6 +89,23 @@ headerTitle: {
     borderTopLeftRadius: 100,
     borderTopRightRadius: 100,
   },
+
+  alertBox: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  backgroundColor: '#fff',
+  padding: 12,
+  borderRadius: 12,
+  marginBottom: 12,
+},
+
+alertText: {
+  fontSize: 16,
+  color: '#000',
+  fontWeight: '600',
+},
+
 });
 
 export default styles;
