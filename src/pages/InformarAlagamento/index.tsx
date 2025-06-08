@@ -32,6 +32,7 @@ const InformarAlagamento = () => {
   const [endereco, setEndereco] = useState('');
   const [bairro, setBairro] = useState('');
   const [numero, setNumero] = useState('');
+  const [descricaoPersonalizada, setDescricaoPersonalizada] = useState('');
   const [coords, setCoords] = useState<{ latitude: number; longitude: number } | null>(null);
 
   const buscarCep = async () => {
@@ -85,7 +86,7 @@ const InformarAlagamento = () => {
       latitude,
       longitude,
       titulo: 'Alerta de Alagamento',
-      descricao: `${endereco}, ${numero} - ${bairro}`,
+      descricao: `${endereco}, ${numero} - ${bairro}. ${descricaoPersonalizada}`,
     };
 
     try {
@@ -122,9 +123,9 @@ const InformarAlagamento = () => {
               value={cep}
               onChangeText={(text) => {
                 const cepFormatado = text
-                  .replace(/\D/g, '') // remove não dígitos
-                  .replace(/^(\d{5})(\d)/, '$1-$2') // insere traço
-                  .substring(0, 9); // limita a 9 caracteres
+                  .replace(/\D/g, '')
+                  .replace(/^(\d{5})(\d)/, '$1-$2')
+                  .substring(0, 9);
                 setCep(cepFormatado);
               }}
               placeholder="00000-000"
@@ -164,6 +165,14 @@ const InformarAlagamento = () => {
           value={bairro}
           onChangeText={setBairro}
           placeholder="Bairro"
+        />
+
+        <Text style={styles.label}>Descrição do Alagamento</Text>
+        <TextInput
+          style={styles.input}
+          value={descricaoPersonalizada}
+          onChangeText={setDescricaoPersonalizada}
+          placeholder="Ex: Rua completamente alagada"
         />
 
         <TouchableOpacity style={styles.confirmButton} onPress={confirmar}>
