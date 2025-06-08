@@ -18,11 +18,19 @@ O **AlertaSP** oferece monitoramento por sensores IoT em pontos críticos, envio
 
 ## 🚀 Funcionalidades principais
 
-- Monitoramento de alagamentos por sensores IoT
-- Alertas em tempo real por localização
-- Mapa com regiões afetadas
-- Denúncia de pontos de risco (rios, córregos, bueiros, etc.)
-- Informações de conscientização e prevenção
+- Monitoramento de alagamentos por sensores IoT  
+- Alertas em tempo real por localização  
+- Mapa com regiões afetadas  
+- Denúncia de pontos de risco (rios, córregos, bueiros, etc.)  
+- Informações de conscientização e prevenção  
+
+---
+
+## 🔗 Links do Projeto
+
+- 🎨 [Figma - Protótipo Visual](https://www.figma.com/design/9x5SwVV0Iuh3D7tsVMljnS/Global-Solution---AlertaSp?node-id=0-1&t=m62s0rVQt0qHPth3-1)
+- 💻 [Explicação do Código - YouTube](https://youtu.be/woLzPQ6y7Pg)
+- 🎤 [Pitch de Apresentação - YouTube](https://www.youtube.com/watch?v=x8Oygxk1--8)
 
 ---
 
@@ -75,21 +83,21 @@ O **AlertaSP** oferece monitoramento por sensores IoT em pontos críticos, envio
 ---
 
 ## 🛠️ Tecnologias
-- React Native + Expo
-- TypeScript
-- Firebase (Autenticação e Denúncias)
-- OpenWeather API
-- Google Maps / OpenStreetMap
+
+- React Native + Expo  
+- TypeScript  
+- Firebase (Autenticação e Denúncias)  
+- OpenWeather API  
+- Google Maps / OpenStreetMap  
 - Sensores IoT (simulados)
 
 ---
 
 ## 📍 Telas
-- Login / Cadastro
-- Home com Acesso Rápido
-- Alerta com busca e cadastro de endereço
-- Denúncia com envio de imagem
-- Clima e previsão por localização
-- Mapa com marcadores de risco
 
----
+- Login / Cadastro  
+- Home com Acesso Rápido  
+- Alerta com busca e cadastro de endereço  
+- Denúncia com envio de imagem  
+- Clima e previsão por localização  
+- Mapa com marcadores de risco  
