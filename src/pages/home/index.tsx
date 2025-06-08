@@ -1,4 +1,3 @@
-// src/pages/home/index.tsx
 import React, { useEffect, useState } from 'react';
 import {
   View,
@@ -6,6 +5,8 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  Alert,
+  BackHandler,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from './style';
@@ -13,14 +14,24 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/RootStack';
 import api from '../../services/api';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../services/firebaseConfig';
 
 const Home = () => {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-  const isUserLogged = false;
+  const [isUserLogged, setIsUserLogged] = useState(false);
 
   const [tiete, setTiete] = useState<any>(null);
   const [pinheiros, setPinheiros] = useState<any>(null);
   const [tamanduatei, setTamanduatei] = useState<any>(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setIsUserLogged(!!user);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   useEffect(() => {
     const fetchAlertas = async () => {
@@ -41,10 +52,38 @@ const Home = () => {
     fetchAlertas();
   }, []);
 
+  const handleProtectedRoute = (screen: keyof RootStackParamList) => {
+    if (isUserLogged) {
+      navigation.navigate(screen);
+    } else {
+      navigation.navigate('AlertaCadastro');
+    }
+  };
+
   return (
     <SafeAreaView style={styles.safeContainer}>
+      {/* Header fixo */}
       <View style={styles.fixedHeader}>
-        <Image source={require('../../assets/buguer.png')} style={styles.menuIcon} />
+        <TouchableOpacity
+          onPress={() =>
+            Alert.alert(
+              'Deseja sair do aplicativo?',
+              'Você será desconectado.',
+              [
+                { text: 'Cancelar', style: 'cancel' },
+                {
+                  text: 'Sair',
+                  style: 'destructive',
+                  onPress: () => BackHandler.exitApp(),
+                },
+              ],
+              { cancelable: true }
+            )
+          }
+        >
+          <Image source={require('../../assets/buguer.png')} style={styles.menuIcon} />
+        </TouchableOpacity>
+
         <TouchableOpacity
           onPress={() => {
             if (!isUserLogged) {
@@ -74,21 +113,21 @@ const Home = () => {
           </View>
 
           <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.iconScroll}>
-            <TouchableOpacity style={styles.iconWrapper} onPress={() => navigation.navigate('Alerta')}>
+            <TouchableOpacity style={styles.iconWrapper} onPress={() => handleProtectedRoute('Alerta')}>
               <View style={styles.iconImage}>
                 <Image source={require('../../assets/alertaIcon.png')} style={{ width: 35, height: 35 }} />
               </View>
               <Text style={styles.iconText}>Alerta</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.iconWrapper} onPress={() => navigation.navigate('Mapa')}>
+            <TouchableOpacity style={styles.iconWrapper} onPress={() => handleProtectedRoute('Mapa')}>
               <View style={styles.iconImage}>
                 <Image source={require('../../assets/mapaIcon.png')} style={{ width: 40, height: 40 }} />
               </View>
               <Text style={styles.iconText}>Mapa Alagamento</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.iconWrapper} onPress={() => navigation.navigate('Denuncia')}>
+            <TouchableOpacity style={styles.iconWrapper} onPress={() => handleProtectedRoute('Denuncia')}>
               <View style={styles.iconImage}>
                 <Image source={require('../../assets/denunciaIcon.png')} style={{ width: 45, height: 45 }} />
               </View>
