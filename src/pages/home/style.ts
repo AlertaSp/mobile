@@ -5,27 +5,26 @@ const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   safeContainer: {
-  flex: 1,
-  backgroundColor: '#0000',
-},
-scrollContent: {
-  paddingHorizontal: 16,
-},
-
-fixedHeader: {
-  position: 'absolute',
-  top: Platform.OS === 'android' ? StatusBar.currentHeight || 0 : 0,
-  left: 0,
-  right: 0,
-  height: 50,
-  backgroundColor: '#0000',
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  paddingHorizontal: 16,
-  paddingTop: 6,
-  zIndex: 10,
-},
+    flex: 1,
+    backgroundColor: '#0000',
+  },
+  scrollContent: {
+    paddingHorizontal: 16,
+  },
+  fixedHeader: {
+    position: 'absolute',
+    top: Platform.OS === 'android' ? StatusBar.currentHeight || 0 : 0,
+    left: 0,
+    right: 0,
+    height: 50,
+    backgroundColor: '#0000',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingTop: 6,
+    zIndex: 10,
+  },
   menuIcon: {
     width: 32,
     height: 32,
@@ -102,12 +101,25 @@ fixedHeader: {
     width: '100%',
     height: 120,
   },
-  riverText: {
+  riverOverlayTextContainer: {
     position: 'absolute',
-    top: '40%',
-    left: '5%',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    padding: 12,
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+  },
+  riverText: {
+    fontSize: 24,
     color: '#fff',
-    fontSize: 32,
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  alertText: {
+    fontSize: 16,
+    color: '#fff',
     fontWeight: 'bold',
   },
 });
