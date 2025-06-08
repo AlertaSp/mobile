@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#3EA9E1',
+    backgroundColor: '#16367D',
   },
   header: {
     flexDirection: 'row',
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 16,
     marginHorizontal: 20,
+    
   },
   input: {
     backgroundColor: '#fff',
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
   botaoTexto: {
     fontSize: 14,
     fontWeight: 'bold',
-    color: '#3EA9E1',
+    color: '#16367D',
   },
   erro: {
     color: '#fff',

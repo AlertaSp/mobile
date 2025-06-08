@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#3EA9E1',
+    backgroundColor: '#16367D',
   },
 
  
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
 
   accessButton: {
-    backgroundColor: '#EE404C',
+    backgroundColor: '#3EA9E1',
     borderRadius: 20,
     borderWidth: 2,
     borderColor: '#fff',

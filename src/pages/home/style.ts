@@ -6,7 +6,7 @@ const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
   safeContainer: {
   flex: 1,
-  backgroundColor: '#3EA9E1',
+  backgroundColor: '#0000',
 },
 scrollContent: {
   paddingHorizontal: 16,
@@ -18,7 +18,7 @@ fixedHeader: {
   left: 0,
   right: 0,
   height: 50,
-  backgroundColor: '#3EA9E1',
+  backgroundColor: '#0000',
   flexDirection: 'row',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -78,7 +78,7 @@ fixedHeader: {
     width: 80,
     height: 80,
     borderRadius: 40,
-    backgroundColor: '#fff',
+    backgroundColor: '#16367D',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 6,

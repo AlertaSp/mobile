@@ -6,7 +6,7 @@ const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#3EA9E1',
+    backgroundColor: '#16367D',
   },
   scroll: {
     paddingBottom: 40,
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   infoTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#000',
+    color: '#ffff',
   },
   bannerContainer: {
     width: '100%',
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#000',
+    color: '#ffff',
   },
 bullet: {
   marginBottom: 12,
@@ -88,7 +88,7 @@ bullet: {
   bulletTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#000',
+    color: '#ffff',
   },
   bulletDescription: {
     fontSize: 15,

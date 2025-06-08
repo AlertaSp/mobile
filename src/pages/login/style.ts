@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#3EA9E1',
+    backgroundColor: '#16367D',
   },
   header: {
     width: '100%',
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
-    color: '#000',
+    color: '#ffff',
     marginBottom: 6,
     marginTop: 12,
   },

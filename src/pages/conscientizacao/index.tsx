@@ -54,7 +54,7 @@ const Conscientizacao = () => {
       <ScrollView contentContainerStyle={styles.scroll}>
         {/* Título com ícone */}
         <View style={styles.infoHeader}>
-          <Image source={require('../../assets/denunciaIcon.png')} style={styles.infoIcon} />
+          <Image source={require('../../assets/informado.png')} style={styles.infoIcon} />
           <Text style={styles.infoTitle}>Se mantenha informado</Text>
         </View>
 
